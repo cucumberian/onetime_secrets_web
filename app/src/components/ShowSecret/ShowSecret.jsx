@@ -6,7 +6,6 @@ import { Alert, AlertIcon } from "@chakra-ui/react";
 import { Code } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { Text } from "@chakra-ui/react";
 
 function ShowSecret({ secret }) {
 

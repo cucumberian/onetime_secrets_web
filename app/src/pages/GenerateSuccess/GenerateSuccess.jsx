@@ -10,15 +10,11 @@ import QrCode from '../../components/QrCode/QrCode';
 
 import { FaTelegram } from "react-icons/fa";
 
-
 /* eslint-disable react/prop-types */
 
 function GenerateSuccess({secretKey, setSecretKey}) {
     const url_string = `${window.location.origin}/${secretKey}`;
     const telegram_link = `https://telegram.me/share/url?url=${url_string}&text=Вам доступен секрет. Перейдите по ссылке, и введите секретную фразу, чтобы его просмотреть.`
-    console.log(url_string);
-
-
 
     const copyToast = useToast();
 
@@ -50,8 +46,6 @@ function GenerateSuccess({secretKey, setSecretKey}) {
                 </Link>
             </HStack>
         </Box>
-        
-
 
         <Alert
             status="warning"

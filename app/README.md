@@ -13,8 +13,7 @@ cd onetimesecret_web/onetime
 ```shell
 npm install
 ```
-### Сборка проекта
+### Запуск дев версии
 ```shell
-npx vite build
+npx vite
 ```
-В директории ./dist появится собранный проект

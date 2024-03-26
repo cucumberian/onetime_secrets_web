@@ -23,8 +23,6 @@ function Secret() {
 
         const data = {'code_phrase': code_phrase};
 
-        console.log(`sending data = ${data}`);
-
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -32,8 +30,6 @@ function Secret() {
             },
             body: JSON.stringify(data),
         });
-
-        console.log(`response = ${response}`)
 
         if (response.ok) {
             const data = await response.json();
@@ -47,7 +43,6 @@ function Secret() {
             setSecret(data);
         }
         else {
-            console.log(`response = ${response}`)
             if (response.status === 404) {
                 toast({
                     title: 'Ошибка',
