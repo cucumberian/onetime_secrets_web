@@ -68,7 +68,7 @@ function GenerateSuccess() {
             <Text fontWeight={'bold'}>
                 <Highlight
                     query={codePhrase}
-                    styles={{ px: '2', py: '1', rounded: 'md', bg: '#d06262', color: 'white'}}
+                    styles={{ px: '2', py: '1', rounded: 'sm', bg: '#d06262', color: 'white'}}
                 >
                 {`Кодовое слово для расшифровки: ${codePhrase}`}
                 </Highlight>
