@@ -10,7 +10,6 @@ import ShowSecret from "../../components/ShowSecret/ShowSecret";
 import appConfig from "../../../config";
 
 
-
 function Secret() {
 
     const [secret, setSecret] = useState(undefined);
@@ -45,8 +44,8 @@ function Secret() {
         else {
             if (response.status === 404) {
                 toast({
-                    title: 'Ошибка',
-                    description: 'Секрет для данного ключа не найден или неверная кодовая фраза',
+                    title: 'Cекрет не найден или введена неверная кодовая фраза.',
+                    // description: ``,
                     status: 'error',
                     duration: 10000,
                     isClosable: true,
@@ -68,7 +67,7 @@ function Secret() {
 
 
     return <Box mx={'auto'}maxWidth={600} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
-        <Heading as='h1' color='#3a3a3a' my={10}>Секрет</Heading>
+        <Heading as='h1' color='#3a3a3a' mb={10}>Секрет</Heading>
 
         {(secret === undefined || secret === null) ? <SecretForm formSubmitHandler={formSubmitHandler} secret_key={secret_key}/> : <ShowSecret secret={secret} />}
         

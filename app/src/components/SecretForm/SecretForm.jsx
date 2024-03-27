@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { Alert, AlertIcon } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
@@ -13,9 +13,17 @@ import { Stack } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { Highlight } from "@chakra-ui/react";
 
-
+import { useSearchParams } from "react-router-dom";
 
 function SecretForm( {formSubmitHandler, secret_key} ) {
+
+    const [searchParams, ] = useSearchParams();
+    
+    useEffect(() => {
+        if (searchParams.get('code_phrase')) {
+            setCodePhrase(searchParams.get('code_phrase'));
+        }
+    }, [searchParams]);
 
     const [codePhrase, setCodePhrase] = useState("");
 
@@ -47,14 +55,14 @@ function SecretForm( {formSubmitHandler, secret_key} ) {
                         </InputRightElement>
                     </InputGroup>
                     
-                    <FormHelperText>Введите кодовую фразу для доступа к секрету</FormHelperText>
+                    <FormHelperText>Введите кодовую фразу для расшифровки секрета</FormHelperText>
                 </FormControl>
             </Stack>
                 <Button my={5} boxShadow='base' colorScheme="green" mt={4} mb={4} onClick={formSubmit} >Получить секрет</Button>
             </form>
         </Box>
 
-        <Alert status='warning' variant='subtle' fontSize={'0.7rem'} my={'auto'}>
+        <Alert status='warning' variant='subtle' my={'auto'}>
             <AlertIcon />
             После успешного получения секрета он будет удален из хранилища.
         </Alert>

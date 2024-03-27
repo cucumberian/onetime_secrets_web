@@ -9,18 +9,18 @@ import { Link } from "react-router-dom";
 
 function ShowSecret({ secret }) {
 
-    const toast = useToast();
+  const toast = useToast();
 
-const copySecret = () => {
-    navigator.clipboard.writeText(secret);
+  const copySecret = () => {
+      navigator.clipboard.writeText(secret);
 
-  toast({
-    title: "Секрет скопирован в буфер обмена",
-    status: "success",
-    duration: 5000,
-    isClosable: true,
-  });
-};
+    toast({
+      title: "Секрет скопирован в буфер обмена",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  };
 
   return (
     <Box display={'flex'} flexDirection={'column'}>
