@@ -23,7 +23,6 @@ function GenerateSuccess() {
 
     const dispatch = useDispatch();
     
-
     const secretKey = useSelector((state) => state.secret.secretKey);
     const codePhrase = useSelector((state) => state.secret.codePhrase);
     const ttlSeconds = useSelector((state) => state.secret.ttlSeconds);
@@ -42,10 +41,8 @@ function GenerateSuccess() {
     const hours = Math.floor((ttlSeconds % 86400) / 3600);
     const minutes = Math.floor((ttlSeconds % 3600) / 60);
 
-    console.log('codePhrase =', codePhrase);
-
-    const copyButtonHandler = () => {
-        navigator.clipboard.writeText(url_string);
+    const copyButtonHandler = async () => {
+        await navigator.clipboard.writeText(url_string);
         copyToast({
             title: 'Ссылка скопирована',
             status: 'success',

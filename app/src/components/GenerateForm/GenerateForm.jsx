@@ -66,17 +66,24 @@ function GenerateForm({submitHandler}) {
             Создание секрета
         </Heading>
 
-        <Heading as='h2' size='md'>Задайте секрет и кодовую фразу и мы пришлем вам одноразовую ссылку на него</Heading>
-
-        <form action="" method="post" onSubmit={formOnSubmit}>
-            <FormControl id="secret_content" display='flex' flexDirection='column' justifyContent='center' alignItems='center' my={10}>
+        <Heading as='h2' size='md' mb={10}>
+            Задайте секрет и кодовую фразу и мы пришлем вам одноразовую ссылку на него
+        </Heading>
+        
+        <form 
+            action=""
+            method="post"
+            onSubmit={formOnSubmit}
+            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '2rem' }}
+        >
+            <FormControl id="secret_content" display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
                 <FormLabel fontWeight={'bold'}>Секрет</FormLabel>
             
                 <Textarea value={secretContent} name="secret_content" placeholder="Ваш секретный текст" onChange={secretContentChangeHandler} size='sm'/>
                 <FormHelperText>Введите текст, который надо хранить в тайне</FormHelperText>
             </FormControl>
 
-            <FormControl display='flex' justifyContent='center' flexDirection='column' alignItems='center' my={10}>
+            <FormControl display='flex' justifyContent='center' flexDirection='column' alignItems='center' >
                 <FormLabel fontWeight={'bold'}>Кодовая фраза</FormLabel>
 
                 <HStack flexWrap='wrap'>
@@ -90,22 +97,24 @@ function GenerateForm({submitHandler}) {
                 </HStack>
 
                 <FormHelperText>Введите кодовую фразу для шифрования секрета</FormHelperText>
-
-                <FormControl my={10} textAlign={'center'} display={'flex'} justifyContent={'center'} flexDirection={'column'} alignItems={'center'} >
-                    <FormLabel fontWeight={'bold'}>Срок действия секрета</FormLabel>
-                    
-                    <Select maxWidth={200} onChange={(e) => setTtlSeconds(e.target.value)} value={ttlSeconds}>
-                        {Object.keys(times).map((time) => <option key={time} value={times[time]}>{time}</option>)}
-                    </Select>
-
-                    <FormHelperText>Секрет будет удален после истечения срока действия</FormHelperText>
-                </FormControl>
             </FormControl>
 
-            <Box mt={4} display='flex' justifyContent='center'>
-                <Button boxShadow='base' type="submit" colorScheme="green" variant="solid" mt={4}>Сохранить секрет</Button>
+            <FormControl textAlign={'center'} display={'flex'} justifyContent={'center'} flexDirection={'column'} alignItems={'center'} >
+                <FormLabel fontWeight={'bold'}>Срок действия секрета</FormLabel>
+                
+                <Select maxWidth={200} onChange={(e) => setTtlSeconds(e.target.value)} value={ttlSeconds}>
+                    {Object.keys(times).map((time) => <option key={time} value={times[time]}>{time}</option>)}
+                </Select>
+
+                <FormHelperText>Секрет будет удален после истечения срока действия</FormHelperText>
+            </FormControl>
+            
+
+            <Box display='flex' justifyContent='center' mt={5}>
+                <Button boxShadow='base' type="submit" colorScheme="green" variant="solid" mt={0}>Сохранить секрет</Button>
             </Box>
         </form>
+        
     </Box>
 }
 
